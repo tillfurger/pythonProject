@@ -80,7 +80,7 @@ dauern bis der Download startet.</li>
 # Setup
 
 Nun öffnen wir PyCharm und starten ein neues Projekt und geben ihm einen beliebigen Namen. Ich nenne es 
-```pythonProject```. PyCharm kreiert uns automatisch ein neues Virtual Environment (```venv```) in welches wir nun 
+```djangoProject```. PyCharm kreiert uns automatisch ein neues Virtual Environment (```venv```) in welches wir nun 
 unsere Packages installieren können. 
 
 
