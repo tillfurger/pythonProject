@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<script>
+    {% block jquery %}
+        $(document).ready(function() {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: {{labels|safe}},
+                    datasets: [{
+                        label: "{{variable|safe}}",
+                        fill: false,
+                        data: {{data|safe}},
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    tooltips: {
+                        enabled: true,
+                    },
+                    title: {
+                        display: true,
+                        text: "{{ticker|safe}}"
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                            }
+                    },
+                    scales: {
+                        x: {
+                            type: 'timeseries',
+                        }
+                    }
+                }
+            });
+        });
+    {% endblock %}
+</script>
+
+<body>
+    <h1>Hier kommt unser Bloomberg API</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">
+            Submit
+        </button>
+    </form>
+    <div>
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+</body>
+
+{% endblock %}
