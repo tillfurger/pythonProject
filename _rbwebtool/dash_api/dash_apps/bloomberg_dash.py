@@ -8,7 +8,7 @@ from xbbg import blp
 
 
 app = DjangoDash('bloomberg_dash')
-#app.css.append_css({'external_url': "/_static/css/dash.css"})
+app.css.append_css({'external_url': "/_static/css/dash.css"})
 
 # Write the HTML Code for it
 app.layout = html.Div(
