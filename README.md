@@ -353,7 +353,7 @@ zur <a href="https://startbootstrap.com/theme/sb-admin-2">Bootstrap</a> Webpage 
 auf die Seite klickst, kannst du die Webpage auch ausprobieren.
 
 Mit dem Download erhalten wir einen gezippten Ordner. Zuerst löschen wir unseren ```css``` Ordner aus 
-```_templates/css```. Dann kopieren wir die Ordner ```css```, ```js``` und ```vendor``` aus 
+```_static/css```. Dann kopieren wir die Ordner ```css```, ```js``` und ```vendor``` aus 
 ```startbootstrap-sb-admin-2-gh-pages.zip\startbootstrap-sb-admin-2-gh-pages``` und fügen sie in unser Ordner 
 ```_static``` ein. Zudem kopieren wir das File 
 ```startbootstrap-sb-admin-2-gh-pages.zip\startbootstrap-sb-admin-2-gh-pages\index.html``` in unseren Ordner
@@ -1174,6 +1174,9 @@ und erstellen einen neuen URL Pfad:
 from django.contrib import admin
 from django.urls import path, include
 
+def HomePage(request):
+    return render(request, 'home.html', {})
+
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', HomePage, name='home'),
@@ -1791,6 +1794,6 @@ Nun führen wir zwei Befehle im ```Terminal``` aus:
 
 *Terminal*
 ```
-python manage.py makemigations
+python manage.py makemigrations
 python manage.py migrate
 ```
